@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-
+import { Container, Form } from './RegisterStyles';
 const Login = () => {
     const [value, setValue] = useState({ name: '', email: '', password: '', password_confirmation: ''})
     const [formData, setFormData] = useState()
@@ -32,16 +32,17 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={e => e.preventDefault()}>
-                <input type="text" name="name" onChange={e => handleUserInput(e)} value={value.name}/>
-                <input type="email" name="email" onChange={e => handleUserInput(e)} value={value.email}/>
-                <input type="password" name="password" onChange={e => handleUserInput(e) } />
-                <input type="password" name="password_confirmation" onChange={e => handleUserInput(e) } />
-                <input type="submit" onClick={submitData} />
-            </form>
-            <Link to="/login">Go to login form</Link>
-        </div>
+        <Container>
+            <Form onSubmit={e => e.preventDefault()}>
+                <h3>Register</h3>
+                <input className="input" placeholder="Name" type="text" name="name" onChange={e => handleUserInput(e)} value={value.name}/>
+                <input className="input" placeholder="Email" type="email" name="email" onChange={e => handleUserInput(e)} value={value.email}/>
+                <input className="input" placeholder="Password (at least 8 characters)" type="password" name="password" onChange={e => handleUserInput(e) } />
+                <input className="input" placeholder="Confirm Password" type="password" name="password_confirmation" onChange={e => handleUserInput(e) } />
+                <input type="submit" onClick={submitData} value="Register" />
+                <Link to="/login">Go to login form</Link>
+            </Form>
+        </Container>
     );
 };
 

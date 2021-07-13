@@ -9,6 +9,7 @@ export const MsgContainer = styled.div`
     background-color: ${props => props.sender ? props.color : 'gray'};
     color: white;
     align-self: ${props => props.sender ? 'flex-end' : 'flex-start'};
+    box-shadow: 0 2px 2px 1px lightgray;
 
     .time {
         color: lightgray;

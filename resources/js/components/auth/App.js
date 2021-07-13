@@ -6,7 +6,7 @@ import Register from './containers/register/Register';
 
 function Auth() {
     return (
-        <div>
+        <div style={{ height: '100vh'}}>
         <BrowserRouter>
            <Switch>
                <Route path="/login" component={Login} />

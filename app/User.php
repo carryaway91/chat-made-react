@@ -39,6 +39,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getNameAttribute($value) {
+        return ucfirst($value);
+    }
+    
     public function sent() {
         return $this->hasMany(Message::class, 'user_id');
     }

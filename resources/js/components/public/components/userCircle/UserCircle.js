@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from './UserCircleStyles';
+import { Container, Abbr } from './UserCircleStyles';
 
 const UserCircle = props => {
     const [abbr, setAbbr] = useState()
@@ -14,7 +14,7 @@ const UserCircle = props => {
 
     return (
         <Container w={props.w}>
-            { abbr ? abbr : 'none' }
+            <Abbr size={props.s && props.s}>{ abbr ? abbr : 'none' }</Abbr>
         </Container>
     );
 };

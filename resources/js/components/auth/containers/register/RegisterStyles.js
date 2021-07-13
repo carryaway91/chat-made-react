@@ -5,15 +5,7 @@ export const Container = styled.div`
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    h4 {
-        margin-top: 2rem
-    }
-    p {
-        margin: 0
-    }
+    align-items: center
 `
 
 export const Form = styled.form`

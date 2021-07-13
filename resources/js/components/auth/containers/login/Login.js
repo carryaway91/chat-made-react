@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import { Container, Form } from './LoginStyles'
 
 const Login = () => {
     const [value, setValue] = useState({ email: '', password: ''})
@@ -30,14 +31,21 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={e => e.preventDefault()}>
-                <input type="email" name="email" onChange={e => handleUserInput(e)} value={value.email}/>
-                <input type="password" name="password" onChange={e => handleUserInput(e) } />
-                <input type="submit" onClick={handleSubmitData} />
-            </form>
+        <Container>
+            <Form onSubmit={e => e.preventDefault()}>
+                <h2>LOGIN</h2>
+                <input className="input" placeholder="Email" type="email" name="email" onChange={e => handleUserInput(e)} value={value.email}/>
+                <input className="input" placeholder="Password" type="password" name="password" onChange={e => handleUserInput(e) } />
+                <input type="submit" onClick={handleSubmitData} value="Login" />
             <Link to="/register">Go to register form</Link>
-        </div>
+            </Form>
+            <h4>User 1: </h4>
+            <p>Email: peter@gmail.com</p>
+            <p>Password: 12345678</p>
+            <h4>User 2: </h4>
+            <p>Email: janka@gmail.com</p>
+            <p>Password: 12345678</p>
+        </Container>
     );
 };
 

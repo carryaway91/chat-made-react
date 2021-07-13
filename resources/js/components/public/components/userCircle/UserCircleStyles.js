@@ -9,4 +9,10 @@ export const Container = styled.div`
     height: ${props => props.w && props.w};
     background: lightblue;
     font-weight: bold;
+
+`
+
+export const Abbr = styled.div`
+    font-size: ${props => props.size};
+    margin: 0
 `

@@ -15,8 +15,10 @@ const Friend = props => {
     
     return (
         <Container onClick={() => props.start(props.friend)} active={props.activeFriend}>
-            <Circle w="3rem" name={props.friend.name} />
-            { name && name }
+            <div className="circle">
+                <Circle w="3rem" name={props.friend.name} />
+            </div>
+            <span>{ name && name }</span>
         </Container>
     );
 };
