@@ -99752,7 +99752,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 var Container = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: column;\n    flex: 3;\n    height: 100%;\n"])));
 var Emoji = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].span(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    font-size: 2rem;\n    margin: 0 .5rem;\n\n    &:hover {\n        cursor: pointer\n    }\n"])));
-var Input = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    border: none;\n    outline: none;\n    background: #d3ebf3;\n    border-radius: 1rem;\n    padding: .5rem 1rem;\n    width: 100%;\n    align-self: center\n"])));
+var Input = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    border: none;\n    outline: none;\n    background: #d3ebf3;\n    border-radius: 1rem;\n    padding: .5rem 1rem;\n    padding-right: 3rem;\n    width: 100%;\n    align-self: center\n"])));
 var SVG = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].svg(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    position: absolute;\n    top: .9rem;\n    right: 4.5rem;\n    width: 1.5rem;\n    height: 1.5rem;\n\n    &:hover {\n        cursor: pointer\n    }\n"])));
 
 /***/ }),
