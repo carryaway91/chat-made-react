@@ -99,30 +99,34 @@ export const Container = styled.nav`
     `
     
     export const Logo = styled.h1`
-    font-family: 'Festive', cursive;
-    margin-left: .8rem;
-    @media(max-width: 400px) {
-        display: none
+        font-family: 'Bebas Neue', cursive;
+        margin-left: .8rem;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+        @media(max-width: 400px) {
+            display: none
     }
     `
     export const NavLogo = styled.h1`
-    font-family: 'Festive', cursive;
-    display: none;
-
-    @media(max-width: 400px) {
-        display: inline-block
-    }
+        font-family: 'Bebas Neue', cursive;
+        display: none;
+        margin-bottom: 0;
+        @media(max-width: 400px) {
+            display: flex;
+            align-items: center;
+        }
     `
     
     export const User = styled.p`
-    align-self: center;
-    margin: 0;
-    margin-right: 1rem;
-    font-weight: bold;
+        align-self: center;
+        margin: 0;
+        margin-right: 1rem;
+        font-weight: bold;
 
-    @media(max-width: 860px) {
-        display: none
-    }
+        @media(max-width: 860px) {
+            display: none
+        }
 `
 
 export const Btn = styled.button`

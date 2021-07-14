@@ -61,6 +61,7 @@ const MessageWindow = props => {
             window.Echo.leave('chat.' + props.data.id)
     }
 
+     
     const handleCreateConversation = e => {
         if(e.key === 'Enter' && text != '') {
             if(props.data === null) {
@@ -128,15 +129,6 @@ const handleSendEmoji = () => {
 
     }
     
-    const handleDeleteMessage = (id, sender) => {
-        if(sender == props.user.id) {
-            Axios.post(`/api/message/${id}/delete`).then(() => {
-                let messagesToKeep = messages.filter(m => m.id !== id)
-                setMessages(messagesToKeep)            
-            })
-        }
-    }
-
     const handleShowEmojiPanel = e => {
         e.stopPropagation()
         setShowEmojiPanel(!showEmojiPanel)
@@ -146,10 +138,17 @@ const handleSendEmoji = () => {
         <Container>
             <div style={{ display: 'flex', flexDirection: 'column', height: '100%'}}>
                 <div id="window" style={{ minHeight: '90%', overflowY: 'auto', padding: '.5rem .5rem 0 .5rem'}}>
-
+                    {
+                        messages.length == 0 && <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                                                    <p style={{fontSize: '2rem', fontWeight: 'bold'}}>Write a new message to { props.to && props.to.name}</p>
+                                                    </div>
+                    }
                     {
                         messages && messages.map(m => (
-                            <Message chatColor={props.chatColor && props.chatColor} user={props.user && props.user.id} from={props.to && props.to.name} message={m} delete={() => handleDeleteMessage(m.id, m.sender_id)}/>
+                            <Message chatColor={props.chatColor && props.chatColor} 
+                            user={props.user && props.user.id} 
+                            from={props.to && props.to.name} 
+                            message={m} delete={() => handleDeleteMessage(m.id, m.sender_id)}/>
                             ))
                         }
 

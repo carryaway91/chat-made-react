@@ -57,7 +57,9 @@ const App = props => {
         } else {
             let sender = conversation.sender_id
             let to = JSON.parse(localStorage.getItem('to'))
-            Axios.get(`/api/searchConversation/${sender}/${to.id}`).then(res => {
+            let receiver = JSON.parse(localStorage.getItem('conversation'))
+            console.log(receiver.friend_id)
+            Axios.get(`/api/searchConversation/${sender}/${receiver.friend_id}`).then(res => {
                 console.log(res.data)
                 setConversation(res.data)
             })

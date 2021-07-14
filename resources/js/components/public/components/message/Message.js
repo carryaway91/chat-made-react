@@ -1,6 +1,6 @@
 import React from 'react';
 import UserCircle from '../userCircle/UserCircle';
-import { MsgContainer, UserWrap } from './MessageStyles';
+import { MsgContainer } from './MessageStyles';
 import moment from 'moment';
 
 const Message = props => {

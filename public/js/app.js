@@ -98972,7 +98972,9 @@ var App = function App(props) {
     } else {
       var sender = conversation.sender_id;
       var to = JSON.parse(localStorage.getItem('to'));
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/searchConversation/".concat(sender, "/").concat(to.id)).then(function (res) {
+      var receiver = JSON.parse(localStorage.getItem('conversation'));
+      console.log(receiver.friend_id);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/searchConversation/".concat(sender, "/").concat(receiver.friend_id)).then(function (res) {
         console.log(res.data);
         setConversation(res.data);
       });
@@ -99643,17 +99645,6 @@ var MessageWindow = function MessageWindow(props) {
     });
   };
 
-  var handleDeleteMessage = function handleDeleteMessage(id, sender) {
-    if (sender == props.user.id) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/message/".concat(id, "/delete")).then(function () {
-        var messagesToKeep = messages.filter(function (m) {
-          return m.id !== id;
-        });
-        setMessages(messagesToKeep);
-      });
-    }
-  };
-
   var handleShowEmojiPanel = function handleShowEmojiPanel(e) {
     e.stopPropagation();
     setShowEmojiPanel(!showEmojiPanel);
@@ -99672,7 +99663,20 @@ var MessageWindow = function MessageWindow(props) {
       overflowY: 'auto',
       padding: '.5rem .5rem 0 .5rem'
     }
-  }, messages && messages.map(function (m) {
+  }, messages.length == 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    style: {
+      width: '100%',
+      height: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+    style: {
+      fontSize: '2rem',
+      fontWeight: 'bold'
+    }
+  }, "Write a new message to ", props.to && props.to.name)), messages && messages.map(function (m) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_message_Message__WEBPACK_IMPORTED_MODULE_2__["default"], {
       chatColor: props.chatColor && props.chatColor,
       user: props.user && props.user.id,
@@ -99891,9 +99895,9 @@ var Color = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].span(_temp
 var Emoji = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].span(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n        border: ", ";\n        border-radius: 50%;\n        width: 2rem;\n        height: 2rem;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        cursor: pointer;\n    "])), function (props) {
   return props.active && '2px solid #897dce';
 });
-var Logo = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].h1(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    font-family: 'Festive', cursive;\n    margin-left: .8rem;\n    @media(max-width: 400px) {\n        display: none\n    }\n    "])));
-var NavLogo = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].h1(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    font-family: 'Festive', cursive;\n    display: none;\n\n    @media(max-width: 400px) {\n        display: inline-block\n    }\n    "])));
-var User = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    align-self: center;\n    margin: 0;\n    margin-right: 1rem;\n    font-weight: bold;\n\n    @media(max-width: 860px) {\n        display: none\n    }\n"])));
+var Logo = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].h1(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n        font-family: 'Bebas Neue', cursive;\n        margin-left: .8rem;\n        display: flex;\n        align-items: center;\n        margin-bottom: 0;\n        @media(max-width: 400px) {\n            display: none\n    }\n    "])));
+var NavLogo = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].h1(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n        font-family: 'Bebas Neue', cursive;\n        display: none;\n        margin-bottom: 0;\n        @media(max-width: 400px) {\n            display: flex;\n            align-items: center;\n        }\n    "])));
+var User = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n        align-self: center;\n        margin: 0;\n        margin-right: 1rem;\n        font-weight: bold;\n\n        @media(max-width: 860px) {\n            display: none\n        }\n"])));
 var Btn = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    background: #897dce;\n    border: none;\n    border-radius: 1rem;\n    padding: .2rem .5rem;\n    align-self: center;\n\n    &:hover {\n        background: #a69ed6;\n    }\n\n"])));
 
 /***/ }),
