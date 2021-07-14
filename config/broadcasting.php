@@ -50,8 +50,8 @@ return [
             'app_id' => '1233794',
             'options' => [
                 'cluster' => 'eu',
-                //'useTLS' => false,
-                //'encrypted' => true
+                'useTLS' => false,
+                'encrypted' => true
             ],
         ],
 
