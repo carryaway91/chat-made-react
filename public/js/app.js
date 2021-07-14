@@ -99614,7 +99614,6 @@ var MessageWindow = function MessageWindow(props) {
           MessageData.append('text', text);
           axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/newMessage', MessageData).then(function (res) {
             setText('');
-            console.log(res.data);
             setMessages([].concat(_toConsumableArray(messages), [res.data]));
           })["catch"](function (err) {});
         });
@@ -99676,9 +99675,10 @@ var MessageWindow = function MessageWindow(props) {
       fontSize: '2rem',
       fontWeight: 'bold'
     }
-  }, "Write a new message to ", props.to && props.to.name)), messages && messages.map(function (m) {
+  }, "Write a new message to ", props.to && props.to.name)), messages && messages.map(function (m, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_message_Message__WEBPACK_IMPORTED_MODULE_2__["default"], {
       chatColor: props.chatColor && props.chatColor,
+      key: i,
       user: props.user && props.user.id,
       from: props.to && props.to.name,
       message: m,
@@ -99719,9 +99719,7 @@ var MessageWindow = function MessageWindow(props) {
       return handleShowEmojiPanel(e);
     },
     viewBox: "0 0 38 38"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("g", {
-    "fill-rule": "evenodd"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("g", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("g", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("g", {
     transform: "translate(-893.000000, -701.000000)"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("g", {
     transform: "translate(709.000000, 314.000000)"
