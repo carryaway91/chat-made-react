@@ -138,7 +138,7 @@ const handleSendEmoji = () => {
             <div style={{ display: 'flex', flexDirection: 'column', height: '100%'}}>
                 <div id="window" style={{ minHeight: '90%', overflowY: 'auto', padding: '.5rem .5rem 0 .5rem'}}>
                     {
-                        messages.length == 0 && <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                        messages && messages.length == 0 && <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                                                     <p style={{fontSize: '2rem', fontWeight: 'bold'}}>Write a new message to { props.to && props.to.name}</p>
                                                     </div>
                     }

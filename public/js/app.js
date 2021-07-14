@@ -99661,7 +99661,7 @@ var MessageWindow = function MessageWindow(props) {
       overflowY: 'auto',
       padding: '.5rem .5rem 0 .5rem'
     }
-  }, messages.length == 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+  }, messages && messages.length == 0 && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     style: {
       width: '100%',
       height: '100%',
