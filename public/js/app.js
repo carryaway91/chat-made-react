@@ -98973,9 +98973,7 @@ var App = function App(props) {
       var sender = conversation.sender_id;
       var to = JSON.parse(localStorage.getItem('to'));
       var receiver = JSON.parse(localStorage.getItem('conversation'));
-      console.log(receiver.friend_id);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/searchConversation/".concat(sender, "/").concat(receiver.friend_id)).then(function (res) {
-        console.log(res.data);
         setConversation(res.data);
       });
       setTextingTo(to);
@@ -98990,9 +98988,7 @@ var App = function App(props) {
       if (res.status == 204) {
         window.location = '/login';
       }
-    })["catch"](function (e) {
-      console.log(e);
-    });
+    })["catch"](function (e) {});
   };
 
   var handleStoreConversation = function handleStoreConversation(data) {
@@ -99157,16 +99153,18 @@ var Details = function Details(props) {
     w: "5rem",
     name: props.to ? props.to.name : null,
     s: "2rem"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.to.name, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Chat color"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DetailsStyles__WEBPACK_IMPORTED_MODULE_2__["Panel"], null, colors && colors.map(function (c) {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.to.name, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Chat color"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DetailsStyles__WEBPACK_IMPORTED_MODULE_2__["Panel"], null, colors && colors.map(function (c, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DetailsStyles__WEBPACK_IMPORTED_MODULE_2__["ColorBtn"], {
       color: c,
+      key: i,
       onClick: function onClick() {
         return props.changeColor(c);
       },
       active: props.activeColor == c
     });
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Chat Emoji"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DetailsStyles__WEBPACK_IMPORTED_MODULE_2__["Panel"], null, emojies && emojies.map(function (e) {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Chat Emoji"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DetailsStyles__WEBPACK_IMPORTED_MODULE_2__["Panel"], null, emojies && emojies.map(function (e, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DetailsStyles__WEBPACK_IMPORTED_MODULE_2__["EmojiBtn"], {
+      key: i,
       onClick: function onClick() {
         return props.changeEmoji(e);
       },
@@ -99302,9 +99300,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var FriendPanel = function FriendPanel(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FriendPanelStyles__WEBPACK_IMPORTED_MODULE_2__["Container"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, props.friends && props.friends.map(function (f) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FriendPanelStyles__WEBPACK_IMPORTED_MODULE_2__["Container"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, props.friends && props.friends.map(function (f, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_friend_Friend__WEBPACK_IMPORTED_MODULE_1__["default"], {
       start: props.startConversation,
+      id: i,
       friend: f,
       activeFriend: props.to ? props.to.id === f.id : false
     });

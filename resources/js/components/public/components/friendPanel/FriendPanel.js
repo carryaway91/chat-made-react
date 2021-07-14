@@ -7,8 +7,8 @@ const FriendPanel = props => {
         <Container>
             <ul>
                 {
-                    props.friends && props.friends.map(f => (
-                        <Friend start={props.startConversation} friend={f} activeFriend={ props.to ? props.to.id === f.id : false }/>
+                    props.friends && props.friends.map((f, i) => (
+                        <Friend start={props.startConversation} id={i} friend={f} activeFriend={ props.to ? props.to.id === f.id : false }/>
                     ))
                 }
             </ul>

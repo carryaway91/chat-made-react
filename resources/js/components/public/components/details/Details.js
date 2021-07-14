@@ -21,14 +21,14 @@ const Details = props => {
             <h3>Chat color</h3>
             <Panel>
                 {
-                    colors && colors.map(c => (
-                    <ColorBtn color={c} onClick={() => props.changeColor(c)} active={props.activeColor == c} />
+                    colors && colors.map((c, i) => (
+                    <ColorBtn color={c} key={i} onClick={() => props.changeColor(c)} active={props.activeColor == c} />
                     ))
                 }
             </Panel>
             <h3>Chat Emoji</h3>
             <Panel>
-                { emojies && emojies.map(e => <EmojiBtn onClick={() => props.changeEmoji(e)} active={props.activeEmoji == e}>{e}</EmojiBtn>)}
+                { emojies && emojies.map((e, i) => <EmojiBtn key={i} onClick={() => props.changeEmoji(e)} active={props.activeEmoji == e}>{e}</EmojiBtn>)}
             </Panel>
         </Container>
     );

@@ -58,9 +58,7 @@ const App = props => {
             let sender = conversation.sender_id
             let to = JSON.parse(localStorage.getItem('to'))
             let receiver = JSON.parse(localStorage.getItem('conversation'))
-            console.log(receiver.friend_id)
             Axios.get(`/api/searchConversation/${sender}/${receiver.friend_id}`).then(res => {
-                console.log(res.data)
                 setConversation(res.data)
             })
             setTextingTo(to)
@@ -76,7 +74,6 @@ const App = props => {
                 window.location = '/login'
             }
         }).catch(e => {
-            console.log(e)
         })
     }
     
